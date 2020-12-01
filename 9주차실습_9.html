@@ -1,0 +1,78 @@
+<!-- 도전문제
+각각의 숫자를 클릭하면 0~2 사이의 난 수 발생. 
+3개 모두 같은 숫자가 나오면 성공. 
+다르면 실패가 나오도록 겜블링 게임 페이지를 작성하라.
+성공 실패 글씨를 클릭하면 다시 게임 할 수 있도록 작성한다.
+ -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>갬블링 게임</title>
+    <style>
+        table{
+            background-color:bisque;
+            border: 1px solid pink;
+            width : 300px;
+            height: 100px;
+        }
+        td{
+            text-align: center;
+            font-weight: bolder;
+            font-size: 40pt;
+            font-style: italic;
+            color: blue;
+        }
+        #msg{
+            font-size: 20pt;
+            color : palevioletred;
+            font-family:monospace;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>갬블링 게임</h3>
+    각 숫자를 클릭하면 0에서 2사이의 난수로 바뀝니다.
+    모두 같은 수가 나오면 승리합니다.
+    <hr>
+    <table> 
+        <tr>
+            <td id="first" onclick="gen(this)">0</td>
+            <td id="second" onclick="gen(this)">0</td>
+            <td id="third" onclick="gen(this)">0</td>
+        </tr>
+    </table>
+    <div id="msg" onclick="reset()"></div>
+
+    <script>
+        function gen(obj) {
+            obj.innerHTML = Math.floor(Math.random() * 3); //0~2사이의 난수 생성하여 this.innerHTML에 넣기
+            var first = document.getElementById("first");
+            var second = document.getElementById("second");
+            var third = document.getElementById("third");
+
+
+            if ((first.innerHTML == second.innerHTML) && (first.innerHTML == third.innerHTML)) {
+                //모두 같은 숫자가 나오면 성공
+                document.getElementById("msg").innerHTML = "success(click here to do again)";
+            }
+            else { //모두 같은 숫자가 아니면 실패
+                document.getElementById("msg").innerHTML = "fail(click here to do again)";
+            }
+
+        }
+
+        function reset() { //success나 fail msg를 클릭하면 다시 게임을 할수 있도록 reset함
+            document.getElementById("msg").innerHTML = " "; //msg 지우기
+            document.getElementById("first").innerHTML = 0; //reset
+            document.getElementById("second").innerHTML = 0;
+            document.getElementById("third").innerHTML = 0;
+        }
+    </script>
+
+</body>
+
+</html>

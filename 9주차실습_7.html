@@ -1,0 +1,33 @@
+<!-- ol 태그 영역을 클릭하여 라면 끓이는 순서를 하나씩 삽입하도록 작성 -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>라면을 끓이는 순서</title>
+    <style>
+        ol{
+            background-color: yellowgreen;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>라면을 끓이는 순서</h3>
+    <hr>
+    <ol type="A" onclick="li(this)">
+        <li>물을 끓인다.</li>
+
+    </ol>
+    <script>
+        function li(obj){
+            var newLi = document.createElement("li"); //li DOM 객체 생성
+            newLi.innerHTML = prompt("라면을 끓이는 순서를 입력하라"); //새로 추가된 li에 프롬프트로 입력받은 텍스트 대입
+            obj.appendChild(newLi); //DOM 트리에 삽입
+        }
+    </script>
+
+</body>
+
+</html>

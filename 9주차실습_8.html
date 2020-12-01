@@ -1,0 +1,53 @@
+<!-- <p> 객체를 동적으로 생성하여 삽입하도록 작성하라. 
+    백설공주, 둘다 를 클릭하면 정답이 다시 제거되게 하라.
+ -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>DOM 객체 동적 삽입</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <h3>정답의 동적 삽입</h3>
+    <hr>
+    <div>
+        <p>Q. 거울아 거울아 세상에서 누가 제일 예쁘니?</p>
+        <button onclick="Ans(this, '백설공주')">답보기</button>
+    </div>
+
+
+    <div>
+        <p>Q. 죽느냐 사느냐 어떤것이 문제인가?</p>
+        <button onclick="Ans(this, '둘다문제')">답보기</button>
+    </div>
+
+    <script>
+
+        function Ans(obj, text) {
+            var par = obj.parentElement; //부모의 HTML태그요소
+            var newP = document.createElement("p"); //div 태그 생성
+
+            newP.innerHTML = text; //button 클릭시 인자로 넘겨받은 텍스트 출력
+            
+            
+            newP.onclick = function(){ //추가된 p태그를 클릭하면 삭제
+
+                var p = this.parentElement; // 부모의 HTML 태그 요소
+                p.removeChild(this); //자신을 부모로 부터 제거한다
+            }
+            par.appendChild(newP);
+            
+        }
+
+
+    </script>
+
+</body>
+
+</html>

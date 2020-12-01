@@ -1,0 +1,50 @@
+<!-- 카드 4개가 겹쳐 있고 보이는 카드를 클릭하면 
+  클릭된 카드가 맨 밑으로 들어가고 
+  바로 밑의 카드가 보이도록 자바스크립트 코드를 작성하라. -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>z-index 스타일 프로퍼티</title>
+    <style>
+      div { position : absolute; } img { position : absolute; } 
+    </style>
+</head>
+
+<body>
+    <h3>z-index 스타일 프로퍼티</h3>
+    <hr>
+    <div>
+      <img id="card1" src="https://previews.123rf.com/images/pandawild/pandawild1509/pandawild150900132/45128580-%ED%8F%AC%EC%BB%A4-%EA%B2%8C%EC%9E%84-%EC%B9%B4%EB%93%9C-7-%EC%8A%A4%ED%8E%98%EC%9D%B4%EB%93%9C.jpg" width="100" height="120">
+      <img id="card2" src="https://previews.123rf.com/images/pandawild/pandawild1509/pandawild150900121/45128569-%ED%8F%AC%EC%BB%A4-%EA%B2%8C%EC%9E%84-%EC%B9%B4%EB%93%9C-4-%EC%8A%A4%ED%8E%98%EC%9D%B4%EB%93%9C.jpg" width="100" height="120">
+      <img id="card3" src="https://previews.123rf.com/images/pandawild/pandawild1509/pandawild150900130/45128578-%ED%8F%AC%EC%BB%A4-%EA%B2%8C%EC%9E%84-%EC%B9%B4%EB%93%9C-2-%EC%8A%A4%ED%8E%98%EC%9D%B4%EB%93%9C.jpg" width="100" height="120">
+      <img id="card4" src="https://w7.pngwing.com/pngs/911/391/png-transparent-ace-of-spades-playing-card-ace-of-hearts-deck-s-game-angle-king.png" width="100" height="120">
+      
+    </div>
+
+    <script>
+        function click(){ //이미지 클릭시 호출되는 함수
+            for(i=0;i<img.length;i++){ 
+                var obj = img[i]; 
+                obj.style.zIndex++; //zIndex에 +1한다
+                obj.style.zIndex %= 4; // 바로 밑에 있던 카드가 맨 위로 올라온다
+            }
+        }
+        
+        var img = document.getElementsByTagName("img"); //이미지 태그 어레이
+        for(i=0;i<img.length;i++){
+            var obj = img[i];
+            obj.style.zIndex = i; //이미지 순서대로 i=0부터 i=3까지 Z인덱스를 부여한다
+            obj.onclick = click; //이미지를 클릭하면 click()함수 호출
+
+        }
+        
+        
+        
+    </script>
+
+</body>
+
+</html>

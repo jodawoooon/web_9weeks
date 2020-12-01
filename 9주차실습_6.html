@@ -1,0 +1,32 @@
+<!-- 이미지를 클릭하면 클릭할때 마다 90도씩 계속 회전하도록 작성하라. -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>클릭하면 90도 회전합니다</title>
+    <style>
+      
+    </style>
+</head>
+
+<body>
+    <h3>클릭하면 90도 회전합니다</h3>
+    <hr>
+    <div>
+      <img src="https://upload.wikimedia.org/wikipedia/ko/8/81/Spongebob_4795.jpg" onclick="rotate(this)">
+    </div>
+
+    <script>
+        var deg = 90;
+        function rotate(obj){
+            obj.style.transform = "rotate("+deg+"deg)";
+            deg += 90;
+        }
+
+    </script>
+
+</body>
+
+</html>
